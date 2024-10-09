@@ -66,16 +66,15 @@ print("Let's play a game of rock-paper-scissors to 3 points.")
 
 while game_on:
     # loop back to ask for correct choice
-    while player1_choice not in rps:
+    while player1_choice not in rps or player2_choice not in rps:
         player1_choice = input("Player 1, please pick rock, paper, or scissors: ")
-        if player1_choice not in rps:
-            print("Please pick a valid option.")
-
-    while player2_choice not in rps:
         player2_choice = input("Player 2, please pick rock, paper, or scissors: ")
-        if player2_choice not in rps:
-            print("Please pick a valid option.")
 
+        if player1_choice not in rps:
+            print("Player 1, please pick a valid option.")
+        if player2_choice not in rps:
+            print("Player 2, please pick a valid option.")
+    
     # game logic
 
     if player1_choice == player2_choice:
@@ -90,10 +89,12 @@ while game_on:
     print(f"Player 1 score: {player1_score}. Player 2's score: {player2_score}.")
     
     # reset player_choice for the while loop
+    # maybe a better way for this here?
     player1_choice = ""
     player2_choice = ""
 
     if player1_score > 2 or player2_score > 2:
         game_on = False
         print("Game over, thank you for playing.")
+
 
