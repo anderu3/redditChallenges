@@ -31,6 +31,7 @@
 
 def spiral(matrix_size):
 
+    # separate box instances
     # add x until 3(matrix_size - 1)
     # add y until 3(matrix_size - 1)
     # subtract x until 0(min_x)
@@ -38,6 +39,7 @@ def spiral(matrix_size):
     # add one to x, now new min_x
     # repeat
 
+    # got stuck here with finding upper end and using floor division from solutions page
     for box in range(matrix_size // 2):
         top = box
         left = box
@@ -56,6 +58,7 @@ def spiral(matrix_size):
         for y in range(bottom, top, -1):
             print((left, y))
 
+    # also got stuck here on how to print the last point, had to go to solutions
     if matrix_size % 2 != 0:
         print((matrix_size//2, matrix_size//2))
 
